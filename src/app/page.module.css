@@ -454,7 +454,8 @@
   backdrop-filter: blur(10px);
   border: 1.5px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-xl);
-  width: 290px;
+  width: 100%;
+  max-width: 290px;
   padding: 1.8rem;
   position: relative;
   z-index: 3;
@@ -611,32 +612,48 @@
 @media (max-width: 768px) {
   .heroContainer {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+  }
+  .heroLeft {
+    align-items: center;
+    text-align: center;
   }
   .heroLeft h1 {
     font-size: 2.8rem;
   }
+  .heroLeft p {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .heroRight {
     margin-top: 1rem;
+    width: 100%;
   }
-  .floatLeft {
-    left: 0;
+  .visualGrid {
+    max-width: 380px;
+    margin: 0 auto;
   }
-  .floatRight {
-    right: 0;
+  .metricFloat {
+    display: none; /* Hide absolutely positioned widgets that cause horizontal screen overflows */
+  }
+  .promisesSection {
+    margin-top: 2rem; /* Remove negative overlap on tablet/mobile views */
   }
   .promisesGrid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
   .categoryGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr); /* Two columns looks far cleaner than stacking full width */
+    gap: 1.2rem;
+  }
+  .categoryCard {
+    padding: 1.5rem 1.2rem;
   }
   .bannerContainer {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .bannerContent {
     align-items: center;
@@ -647,5 +664,76 @@
   .testimonialsGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .searchBox {
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    border-radius: var(--radius-lg);
+  }
+  .searchInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+  .searchBox button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: var(--radius-md);
+  }
+  .quickTagsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroLeft h1 {
+    font-size: 2.2rem;
+  }
+  .heroLeft p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .sectionHeadingBlock {
+    margin-bottom: 2rem;
+  }
+  .sectionHeadingBlock h2 {
+    font-size: 1.8rem;
+  }
+  .categoryCard {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+  .categoryIcon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.8rem;
+  }
+  .categoryCardBody h3 {
+    font-size: 1.05rem;
+  }
+  .categoryDesc {
+    font-size: 0.78rem;
+  }
+  .bannerSection {
+    padding: 3.5rem 0;
+    margin: 3.5rem 0;
+  }
+  .bannerContent h2 {
+    font-size: 2.2rem;
+  }
+  .bannerContent p {
+    font-size: 0.95rem;
+  }
+  .testimonialCard {
+    padding: 1.5rem 1.2rem;
+  }
+  .testimonialText {
+    font-size: 0.88rem;
   }
 }

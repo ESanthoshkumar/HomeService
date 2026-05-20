@@ -1,0 +1,179 @@
+.servicesPage {
+  background-color: var(--background-light);
+  min-height: 100vh;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  background: radial-gradient(circle at bottom left, rgba(123, 44, 191, 0.04), transparent 50%), 
+              radial-gradient(circle at top right, rgba(123, 44, 191, 0.04), transparent 50%),
+              var(--background-white);
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(123, 44, 191, 0.1);
+  color: var(--accent-color);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.card {
+  background-color: var(--background-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), 0 12px 30px rgba(123, 44, 191, 0.08);
+  border-color: rgba(123, 44, 191, 0.3);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.cardImg {
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.card:hover .cardImg {
+  transform: scale(1.05);
+}
+
+.ratingBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--background-white);
+  color: var(--text-main);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1px solid var(--border-color);
+}
+
+.cardBody {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.serviceCount {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.cardBody h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.cardBody p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 1.75rem;
+}
+
+.highlightBadge {
+  background-color: var(--background-light);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.cardBtn {
+  background-color: var(--background-light);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.cardBtn:hover {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-glow);
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

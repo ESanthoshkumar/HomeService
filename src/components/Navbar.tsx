@@ -11,10 +11,14 @@ export default function Navbar() {
         <div className={styles.navLinks}>
           <Link href="/services" className={styles.navLink}>Services</Link>
           <Link href="/professionals" className={styles.navLink}>Professionals</Link>
+          <Link href="/dashboard" className={styles.navLink}>Dashboard</Link>
           <Link href="/about" className={styles.navLink}>About Us</Link>
         </div>
         <div className={styles.navActions}>
-          <button className="btn-primary">Login / Sign Up</button>
+          <Link href="/dashboard" className={styles.profileBadge}>
+            <span className={styles.avatar}>👤</span>
+            <span className={styles.profileText}>My Account</span>
+          </Link>
         </div>
       </div>
     </nav>

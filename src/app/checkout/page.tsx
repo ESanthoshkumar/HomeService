@@ -17,6 +17,13 @@ const servicesLookup: Record<string, { name: string; price: string }> = {
   "9": { name: "Pipe Leakage Fix", price: "₹45" },
 };
 
+const serviceCategories: Record<string, string> = {
+  "1": "cleaning", "2": "cleaning", "3": "cleaning",
+  "4": "salon", "5": "salon",
+  "6": "repair", "7": "repair",
+  "8": "plumbing", "9": "plumbing"
+};
+
 export default function CheckoutPage() {
   return (
     <Suspense fallback={
@@ -39,15 +46,56 @@ function CheckoutContent() {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
 
-  // Customer details form states
-  const [fullName, setFullName] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [address, setAddress] = useState('');
+  // Customer details form states (lazily loaded from localStorage)
+  const [fullName, setFullName] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedProfile = localStorage.getItem('home_service_profile');
+        if (savedProfile) {
+          const profile = JSON.parse(savedProfile);
+          return profile.fullName || '';
+        }
+      } catch (e) {
+        console.error("Error loading profile from localStorage:", e);
+      }
+    }
+    return '';
+  });
+
+  const [mobileNumber, setMobileNumber] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedProfile = localStorage.getItem('home_service_profile');
+        if (savedProfile) {
+          const profile = JSON.parse(savedProfile);
+          return profile.mobileNumber || '';
+        }
+      } catch (e) {
+        console.error("Error loading profile from localStorage:", e);
+      }
+    }
+    return '';
+  });
+
+  const [address, setAddress] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedProfile = localStorage.getItem('home_service_profile');
+        if (savedProfile) {
+          const profile = JSON.parse(savedProfile);
+          return profile.address || '';
+        }
+      } catch (e) {
+        console.error("Error loading profile from localStorage:", e);
+      }
+    }
+    return '';
+  });
 
   const dates = ['Today', 'Tomorrow', 'Day After'];
   const times = ['09:00 AM', '11:00 AM', '02:00 PM', '04:00 PM', '06:00 PM'];
 
-  const priceNum = parseInt(service.price.replace('$', '')) || 0;
+  const priceNum = parseInt(service.price.replace(/[^\d]/g, '')) || 0;
   const taxesAndFees = 12;
   const totalPrice = `₹${priceNum + taxesAndFees}`;
 
@@ -57,7 +105,7 @@ function CheckoutContent() {
       `🛠️ *Service:* ${service.name}\n` +
       `📅 *Date:* ${selectedDate}\n` +
       `⏱️ *Time:* ${selectedTime}\n` +
-      `💵 *Total:* ${totalPrice} (${service.price} + $${taxesAndFees} Taxes & Fee)\n\n` +
+      `💵 *Total:* ${totalPrice} (${service.price} + ₹${taxesAndFees} Taxes & Fee)\n\n` +
       `👤 *Customer:* ${fullName}\n` +
       `📞 *Mobile:* ${mobileNumber}\n` +
       `📍 *Address:* ${address}\n\n` +
@@ -68,6 +116,32 @@ function CheckoutContent() {
   const handleNext = () => setStep(step + 1);
 
   const handleConfirmAndPay = () => {
+    // Save to localStorage
+    const newBooking = {
+      id: `HS-${Date.now()}`,
+      serviceId,
+      serviceName: service.name,
+      price: service.price,
+      totalPrice,
+      date: selectedDate,
+      time: selectedTime,
+      customerName: fullName,
+      mobile: mobileNumber,
+      address: address,
+      status: 'Scheduled',
+      category: serviceCategories[serviceId] || 'cleaning',
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      const existingBookingsStr = localStorage.getItem('home_service_bookings');
+      const existingBookings = existingBookingsStr ? JSON.parse(existingBookingsStr) : [];
+      existingBookings.unshift(newBooking);
+      localStorage.setItem('home_service_bookings', JSON.stringify(existingBookings));
+    } catch (e) {
+      console.error("Error saving booking to localStorage:", e);
+    }
+
     const url = getWhatsAppUrl();
     // Open WhatsApp in a new window/tab
     window.open(url, '_blank');

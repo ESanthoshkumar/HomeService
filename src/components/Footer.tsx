@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerGrid}`}>
         <div className={styles.footerBrand}>
-          <h2 className={styles.logo}>Urban<span>Clone</span></h2>
+          <h2 className={styles.logo}>Home<span>Service</span></h2>
           <p className="text-muted mt-4">
             Premium home services, delivered to your doorstep by trusted professionals.
           </p>
@@ -31,7 +31,7 @@ export default function Footer() {
       </div>
       <div className={styles.footerBottom}>
         <div className="container text-center text-muted">
-          <p>&copy; {new Date().getFullYear()} Home service. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} HomeService. All rights reserved.</p>
         </div>
       </div>
     </footer>

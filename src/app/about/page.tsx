@@ -34,7 +34,7 @@ export default function AboutPage() {
             </p>
             
             <div className={styles.quoteBlock}>
-              <p>“We don't just book services; we deliver comfort and peace of mind.”</p>
+              <p>“We don&apos;t just book services; we deliver comfort and peace of mind.”</p>
               <span>— CEO, Home Service</span>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>🔄</div>
               <h3>100% Satisfaction</h3>
-              <p>If you're not completely happy with your service, we will send an expert to redo the work at no extra cost to you.</p>
+              <p>If you&apos;re not completely happy with your service, we will send an expert to redo the work at no extra cost to you.</p>
             </div>
           </div>
         </div>

@@ -2,8 +2,32 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface ServiceItem {
+  id: number;
+  name: string;
+  rating: number;
+  reviews: string;
+  price: string;
+  time: string;
+  popular: boolean;
+  description: string;
+}
+
+interface CategoryData {
+  title: string;
+  description: string;
+  image: string;
+  cardImage: string;
+  stats: {
+    rating: string;
+    customers: string;
+    time: string;
+  };
+  services: ServiceItem[];
+}
+
 // Mock data for services with added card images and metadata
-const servicesData = {
+const servicesData: Record<string, CategoryData> = {
   cleaning: {
     title: "Home Cleaning",
     description: "Professional cleaning services for your entire home. Let our trained experts handle the dirt.",
@@ -53,7 +77,7 @@ const servicesData = {
 
 export default async function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const category = (servicesData as any)[id];
+  const category = servicesData[id];
 
   if (!category) {
     return (
@@ -123,7 +147,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
             <p className={styles.sectionSubtitle}>Choose a service to customize your booking.</p>
 
             <div className={styles.serviceList}>
-              {category.services.map((service: any, index: number) => (
+              {category.services.map((service: ServiceItem, index: number) => (
                 <div
                   key={service.id}
                   className={`${styles.serviceCard} ${service.popular ? styles.popularCard : ''}`}

@@ -1,6 +1,7 @@
 import styles from './page.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import ChatWidget from '../../../components/ChatWidget';
 
 interface ServiceItem {
   id: number;
@@ -233,7 +234,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
             <div className={styles.helpCard}>
               <h4>Need help deciding?</h4>
               <p>Chat with a dedicated home service advisor to get a custom quote.</p>
-              <button className={styles.chatButton}>💬 Chat with Us</button>
+              <ChatWidget />
             </div>
           </div>
 

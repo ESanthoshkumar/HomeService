@@ -6,54 +6,54 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 const categories = [
-  { 
-    id: "cleaning", 
-    name: "Home Cleaning", 
-    icon: "🧹", 
-    desc: "Kitchen, bathroom & sofa deep cleaning", 
-    price: "Starts at ₹120", 
-    badge: "Best Seller" 
+  {
+    id: "cleaning",
+    name: "Home Cleaning",
+    icon: "🧹",
+    desc: "Kitchen, bathroom & sofa deep cleaning",
+    price: "Starts at ₹120",
+    badge: "Best Seller"
   },
-  { 
-    id: "salon", 
-    name: "Salon at Home", 
-    icon: "✂️", 
-    desc: "Premium grooming, spas & hair services", 
-    price: "Starts at ₹40", 
-    badge: "Flat 20% Off" 
+  {
+    id: "salon",
+    name: "Salon at Home",
+    icon: "✂️",
+    desc: "Premium grooming, spas & hair services",
+    price: "Starts at ₹40",
+    badge: "Flat 20% Off"
   },
-  { 
-    id: "repair", 
-    name: "Appliance Repair", 
-    icon: "🔧", 
-    desc: "AC, refrigerator, microwave & TV repair", 
-    price: "Starts at ₹50", 
-    badge: "Superfast" 
+  {
+    id: "repair",
+    name: "Appliance Repair",
+    icon: "🔧",
+    desc: "AC, refrigerator, microwave & TV repair",
+    price: "Starts at ₹50",
+    badge: "Superfast"
   },
-  { 
-    id: "plumbing", 
-    name: "Plumbing Services", 
-    icon: "🚰", 
-    desc: "Leak detection, pipe repairs & fittings", 
-    price: "Starts at ₹30", 
-    badge: "24/7 Support" 
+  {
+    id: "plumbing",
+    name: "Plumbing Services",
+    icon: "🚰",
+    desc: "Leak detection, pipe repairs & fittings",
+    price: "Starts at ₹30",
+    badge: "24/7 Support"
   },
-  { 
-    id: "electrician", 
-    name: "Electrician", 
-    icon: "⚡", 
-    desc: "Socket installations, wiring & repairs", 
-    price: "Starts at ₹35", 
-    badge: "Safety Vetted" 
-  },
-  { 
-    id: "painting", 
-    name: "Home Painting", 
-    icon: "🎨", 
-    desc: "Full wall styling, consultations & designs", 
-    price: "Starts at ₹250", 
-    badge: "100% Quality" 
-  },
+  // { 
+  //   id: "electrician", 
+  //   name: "Electrician", 
+  //   icon: "⚡", 
+  //   desc: "Socket installations, wiring & repairs", 
+  //   price: "Starts at ₹35", 
+  //   badge: "Safety Vetted" 
+  // },
+  // { 
+  //   id: "painting", 
+  //   name: "Home Painting", 
+  //   icon: "🎨", 
+  //   desc: "Full wall styling, consultations & designs", 
+  //   price: "Starts at ₹250", 
+  //   badge: "100% Quality" 
+  // },
 ];
 
 const testimonials = [
@@ -100,7 +100,7 @@ export default function Home() {
     if (!searchQuery.trim()) return;
 
     const query = searchQuery.toLowerCase();
-    
+
     // Simple routing logic based on query matching
     if (query.includes("clean") || query.includes("sofa") || query.includes("home")) {
       router.push("/category/cleaning");
@@ -127,11 +127,11 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
-      
+
       {/* 🚀 Dynamic Hero Section */}
       <section className={styles.heroSection}>
         <div className={`container ${styles.heroContainer}`}>
-          
+
           <div className={styles.heroLeft}>
             <div className={styles.heroBadge}>✨ Real-time Verified Home Experts</div>
             <h1 className="animate-fade-in">
@@ -141,11 +141,11 @@ export default function Home() {
             <p className="text-muted mt-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Discover the best background-checked professionals for all your home cleaning, grooming, repair, and wiring needs.
             </p>
-            
+
             <form onSubmit={handleSearchSubmit} className={`${styles.searchBox} glass mt-8 animate-fade-in`} style={{ animationDelay: '0.2s' }}>
-              <input 
-                type="text" 
-                placeholder="Search for 'AC Repair', 'Deep Cleaning'..." 
+              <input
+                type="text"
+                placeholder="Search for 'AC Repair', 'Deep Cleaning'..."
                 className={styles.searchInput}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -178,40 +178,40 @@ export default function Home() {
           <div className={styles.heroRight}>
             <div className={styles.visualGrid}>
               <div className={styles.visualCard} style={{ gridArea: '1 / 1 / 3 / 2' }}>
-                <Image 
-                  src="/images/cleaning.png" 
-                  alt="Cleaning expert" 
-                  width={220} 
-                  height={320} 
+                <Image
+                  src="/images/cleaning.png"
+                  alt="Cleaning expert"
+                  width={220}
+                  height={320}
                   className={styles.heroVisualImg}
                   priority
                 />
                 <div className={styles.floatingTag}>🧹 Deep Cleaning</div>
               </div>
               <div className={styles.visualCard} style={{ gridArea: '1 / 2 / 2 / 3' }}>
-                <Image 
-                  src="/images/salon.png" 
-                  alt="Salon specialist" 
-                  width={220} 
-                  height={150} 
+                <Image
+                  src="/images/salon.png"
+                  alt="Salon specialist"
+                  width={220}
+                  height={150}
                   className={styles.heroVisualImg}
                   priority
                 />
                 <div className={styles.floatingTag}>✂️ Salon</div>
               </div>
               <div className={styles.visualCard} style={{ gridArea: '2 / 2 / 3 / 3' }}>
-                <Image 
-                  src="/images/repair.png" 
-                  alt="Repair technician" 
-                  width={220} 
-                  height={150} 
+                <Image
+                  src="/images/repair.png"
+                  alt="Repair technician"
+                  width={220}
+                  height={150}
                   className={styles.heroVisualImg}
                   priority
                 />
                 <div className={styles.floatingTag}>🔧 Repairs</div>
               </div>
             </div>
-            
+
             {/* Metric floatings */}
             <div className={`${styles.metricFloat} ${styles.floatLeft}`}>
               <span className={styles.floatIcon}>⭐</span>
@@ -261,11 +261,11 @@ export default function Home() {
           <h2>Exquisite Services, Handled Professionally</h2>
           <p className="text-muted mt-2">Background-verified experts at your service. Choose a category below.</p>
         </div>
-        
+
         <div className={styles.categoryGrid}>
           {categories.map((cat, index) => (
-            <Link 
-              href={`/category/${cat.id}`} 
+            <Link
+              href={`/category/${cat.id}`}
               key={cat.id}
               className={`glass ${styles.categoryCard}`}
               style={{ animationDelay: `${0.05 * index}s` }}

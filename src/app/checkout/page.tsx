@@ -110,7 +110,8 @@ function CheckoutContent() {
       `📞 *Mobile:* ${mobileNumber}\n` +
       `📍 *Address:* ${address}\n\n` +
       `Please confirm my booking!`;
-    return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    const cleanPhone = mobileNumber.replace(/[^\d]/g, '');
+    return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(message)}`;
   };
 
   const handleNext = () => setStep(step + 1);

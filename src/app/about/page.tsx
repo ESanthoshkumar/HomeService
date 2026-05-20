@@ -32,19 +32,19 @@ export default function AboutPage() {
             <p className="mt-4 text-muted">
               We set out to build a platform that prioritizes absolute trust, vetted expertise, and guaranteed customer satisfaction. Today, we host thousands of background-verified experts servicing homes across the country.
             </p>
-            
+
             <div className={styles.quoteBlock}>
               <p>“We don&apos;t just book services; we deliver comfort and peace of mind.”</p>
               <span>— CEO, Home Service</span>
             </div>
           </div>
-          
+
           <div className={styles.journeyImageWrapper}>
-            <Image 
-              src="/images/about_hero.png" 
-              alt="About Home Service Illustration" 
-              width={500} 
-              height={400} 
+            <Image
+              src="/images/about_hero.png"
+              alt="About Home Service Illustration"
+              width={500}
+              height={400}
               className={styles.journeyImage}
             />
           </div>
@@ -58,20 +58,20 @@ export default function AboutPage() {
             <h2 className={styles.sectionTitle}>Our Core Values</h2>
             <p className="text-muted mt-2">The principles that guide everything we do</p>
           </div>
-          
+
           <div className={styles.valuesGrid}>
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>🛡️</div>
               <h3>Absolute Trust</h3>
               <p>Every single professional goes through strict background checks, physical verification, and expert assessments before joining.</p>
             </div>
-            
+
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>✨</div>
               <h3>Premium Quality</h3>
               <p>We train our partners in service delivery, customer relations, and use high-end, premium materials for all jobs.</p>
             </div>
-            
+
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>🔄</div>
               <h3>100% Satisfaction</h3>
@@ -90,13 +90,13 @@ export default function AboutPage() {
             <h3>Select a Service</h3>
             <p className="text-muted mt-2">Browse categories and choose the exact customizable package you need.</p>
           </div>
-          
+
           <div className={styles.step}>
             <div className={styles.stepNumber}>2</div>
             <h3>Book and Confirm</h3>
             <p className="text-muted mt-2">Select a date and time, fill details and confirm booking directly via WhatsApp.</p>
           </div>
-          
+
           <div className={styles.step}>
             <div className={styles.stepNumber}>3</div>
             <h3>Sit Back & Relax</h3>
@@ -110,9 +110,11 @@ export default function AboutPage() {
         <div className="container text-center">
           <h2>Ready to experience premium home care?</h2>
           <p className="mt-4">Book a certified professional today and transform your living space.</p>
-          <Link href="/services" className="btn-accent mt-8 inline-block">
-            Browse All Services
-          </Link>
+          <div className="mt-8">
+            <Link href="/services" className="btn-accent inline-block">
+              Browse All Services
+            </Link>
+          </div>
         </div>
       </div>
     </div>

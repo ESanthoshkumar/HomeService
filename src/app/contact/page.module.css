@@ -1,0 +1,264 @@
+.contactPage {
+  background-color: var(--background-light);
+  min-height: 100vh;
+}
+
+.hero {
+  background: radial-gradient(circle at top right, rgba(123, 44, 191, 0.04), transparent 50%), 
+              radial-gradient(circle at bottom left, rgba(123, 44, 191, 0.04), transparent 50%),
+              var(--background-white);
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(123, 44, 191, 0.1);
+  color: var(--accent-color);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background-color: var(--background-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infoCard h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.contactRow {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+  align-items: flex-start;
+}
+
+.contactIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(123, 44, 191, 0.08);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(123, 44, 191, 0.12);
+}
+
+.contactRow div strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.contactRow div p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 0.15rem;
+}
+
+.contactRow div p a {
+  color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.contactRow div p a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+.contactRow div span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.hoursCard {
+  background-color: var(--background-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 1.8rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hoursCard h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.hoursGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.hoursGrid div span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.hoursGrid div strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-top: 0.2rem;
+}
+
+/* --- Form Column --- */
+.formCol {
+  position: relative;
+}
+
+.formCard {
+  background-color: var(--background-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.formCard h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.formGroup input, .formGroup textarea, .formSelect {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  background: var(--background-white);
+  transition: var(--transition);
+}
+
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23495057' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.formGroup input:focus, .formGroup textarea:focus, .formSelect:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.12);
+}
+
+.successMessage {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.successMessage strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.successMessage p {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .splitGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .infoCard, .formCard {
+    padding: 1.8rem;
+  }
+  .hoursCard {
+    padding: 1.5rem 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hoursGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

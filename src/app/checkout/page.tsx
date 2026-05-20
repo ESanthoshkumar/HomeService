@@ -62,20 +62,21 @@ function CheckoutContent() {
     return '';
   });
 
-  const [mobileNumber, setMobileNumber] = useState(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const savedProfile = localStorage.getItem('home_service_profile');
-        if (savedProfile) {
-          const profile = JSON.parse(savedProfile);
-          return profile.mobileNumber || '';
-        }
-      } catch (e) {
-        console.error("Error loading profile from localStorage:", e);
-      }
-    }
-    return '';
-  });
+  const [mobileNumber, setMobileNumber] = useState(() => "9342256635")
+  // {
+  // if (typeof window !== 'undefined') {
+  //   try {
+  //     const savedProfile = localStorage.getItem('home_service_profile');
+  //     if (savedProfile) {
+  //       const profile = JSON.parse(savedProfile);
+  //       return profile.mobileNumber || '';
+  //     }
+  //   } catch (e) {
+  //     console.error("Error loading profile from localStorage:", e);
+  //   }
+  // }
+  // return '';
+  // });
 
   const [address, setAddress] = useState(() => {
     if (typeof window !== 'undefined') {
